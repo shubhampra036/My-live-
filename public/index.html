@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOHIT - Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#0a0a0a',
+                        'coral': '#ff6b6b',
+                        'coral-light': '#ff8e8e',
+                        'coral-dark': '#ff4757'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/output.css">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .sphere {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle at 30% 30%, #ff8e8e, #ff6b6b, #ff4757);
+            border-radius: 50%;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+            box-shadow: 
+                0 0 60px rgba(255, 107, 107, 0.3),
+                0 0 120px rgba(255, 107, 107, 0.2),
+                inset -20px -20px 40px rgba(255, 71, 87, 0.3);
+        }
+        
+        .sphere::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent);
+            border-radius: 50%;
+            filter: blur(10px);
+        }
+        
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) rotateX(0deg) rotateY(0deg); 
+            }
+            50% { 
+                transform: translateY(-20px) rotateX(5deg) rotateY(5deg); 
+            }
+        }
+        
+        .menu-button {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .menu-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .cta-button {
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .cta-button:hover {
+            background: rgba(255, 107, 107, 0.2);
+            border-color: #ff6b6b;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+        
+        .text-glow {
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-dark-bg text-white font-sans overflow-x-hidden">
+    
+    <!-- Navigation Header -->
+    <nav class="fixed top-0 w-full z-50 px-8 py-6">
+        <div class="flex justify-between items-center">
+            <!-- Logo -->
+            <div class="text-xl font-bold tracking-wider">
+                MOHIT
+            </div>
+            
+            <!-- Menu Button -->
+            <button class="menu-button px-6 py-2 rounded-full text-sm font-medium tracking-wide">
+                <div class="flex items-center space-x-2">
+                    <span>MENU</span>
+                    <div class="flex flex-col space-y-1">
+                        <div class="w-4 h-0.5 bg-white"></div>
+                        <div class="w-4 h-0.5 bg-white"></div>
+                        <div class="w-4 h-0.5 bg-white"></div>
+                    </div>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25% 25%, #ff6b6b 1px, transparent 1px); background-size: 50px 50px;"></div>
+        </div>
+        
+        <div class="text-center z-10">
+            <!-- 3D Sphere -->
+            <div class="mb-12 flex justify-center">
+                <div class="sphere"></div>
+            </div>
+            
+            <!-- Main Heading -->
+            <h1 class="text-5xl md:text-7xl font-light mb-8 text-glow">
+                Craft digital experiences
+            </h1>
+            
+            <!-- Subtitle -->
+            <p class="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto font-light">
+                Full-stack developer specializing in modern web technologies, 
+                creating beautiful and functional digital solutions
+            </p>
+            
+            <!-- CTA Button -->
+            <button class="cta-button px-8 py-4 rounded-full text-sm font-medium tracking-wide">
+                View my portfolio
+            </button>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+            <div class="w-px h-16 bg-gradient-to-b from-transparent to-white opacity-50"></div>
+            <div class="w-2 h-2 bg-white rounded-full mx-auto mt-2 opacity-50 animate-pulse"></div>
+        </div>
+    </section>
+
+  
+   <!-- About Section -->
+<section id="about" class="min-h-screen flex items-center justify-center px-6 py-16 bg-black">
+  <div class="max-w-6xl w-full bg-gradient-to-r from-gray-900 to-black rounded-3xl p-10 md:p-16 relative flex flex-col md:flex-row items-center">
+    
+    <!-- Left Content -->
+    <div class="flex-1 text-center md:text-left">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 text-white">
+        About Mohit
+      </h2>
+      <p class="text-gray-400 text-lg mb-6">
+        Biography and specialization
+      </p>
+      <p class="text-gray-300 leading-relaxed mb-6">
+        I'm a passionate full-stack developer with expertise in modern web technologies. 
+        My journey in development spans over 5 years, during which I've crafted digital 
+        experiences that blend aesthetic appeal with functional excellence.
+      </p>
+      <button class="group inline-flex items-center space-x-2 border border-gray-600 hover:border-pink-500 text-white px-6 py-3 rounded-full transition-all duration-300 hover:bg-pink-500/10">
+        <span>Learn more</span>
+        <!-- Arrow Right Heroicon -->
+        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Right Image -->
+    <div class="flex-1 flex justify-center mt-10 md:mt-0">
+      <img src="/assets/mohit.png" alt="Profile" class="w-72 md:w-96 rounded-2xl object-cover">
+    </div>
+
+    <!-- Social Icons -->
+    <div class="absolute top-6 right-6 flex space-x-4">
+      <!-- Instagram Icon -->
+      <a href="#" class="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:border-pink-500 hover:bg-pink-500/10">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm9.25 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
+        </svg>
+      </a>
+
+      <!-- YouTube Icon -->
+      <a href="#" class="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:border-red-500 hover:bg-red-500/10">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M21.8 8.001c-.2-1.5-1.3-2.7-2.7-2.9C17 5 12 5 12 5s-5 0-7.1.1c-1.4.2-2.6 1.4-2.7 2.9C2 9.2 2 12 2 12s0 2.8.2 4c.2 1.5 1.3 2.7 2.7 2.9C7 19 12 19 12 19s5 0 7.1-.1c1.4-.2 2.6-1.4 2.7-2.9.2-1.2.2-4 .2-4s0-2.8-.2-4Zm-12 6.5v-5l5 2.5-5 2.5Z"/>
+        </svg>
+      </a>
+
+      <!-- Telegram Icon -->
+      <a href="#" class="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:border-sky-500 hover:bg-sky-500/10">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M9.04 15.27 8.7 19.42c.53 0 .76-.23 1.04-.51l2.5-2.37 5.18 3.77c.95.53 1.63.25 1.87-.88l3.4-15.98c.34-1.58-.57-2.2-1.6-1.82L1.54 9.44c-1.55.61-1.53 1.49-.28 1.89l4.77 1.49 11.06-6.95c.52-.33 1-.15.61.18l-8.66 8.22Z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Services/Skills Section -->
+    <section id="services" class="min-h-screen flex items-center justify-center py-20 px-8 relative">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-light mb-4 text-glow">
+                    DEVELOPMENT SERVICES
+                </h2>
+                <p class="text-gray-400 text-lg font-light">
+                    Specialized expertise in modern web technologies
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Frontend Development Card -->
+                <div class="group relative bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl p-8 overflow-hidden transition-transform duration-500 hover:scale-105 cursor-pointer">
+                    <!-- 3D Shape - Flower-like -->
+                    <div class="absolute bottom-6 right-6 w-32 h-32 opacity-80">
+                        <div class="relative w-full h-full">
+                            <!-- Petals -->
+                            <div class="absolute inset-0">
+                                <div class="absolute top-0 left-1/2 w-8 h-16 bg-gradient-to-b from-cyan-300 to-blue-300 rounded-full transform -translate-x-1/2 rotate-0 opacity-70"></div>
+                                <div class="absolute top-0 left-1/2 w-8 h-16 bg-gradient-to-b from-cyan-300 to-blue-300 rounded-full transform -translate-x-1/2 rotate-45 opacity-70"></div>
+                                <div class="absolute top-0 left-1/2 w-8 h-16 bg-gradient-to-b from-cyan-300 to-blue-300 rounded-full transform -translate-x-1/2 rotate-90 opacity-70"></div>
+                                <div class="absolute top-0 left-1/2 w-8 h-16 bg-gradient-to-b from-cyan-300 to-blue-300 rounded-full transform -translate-x-1/2 rotate-135 opacity-70"></div>
+                                <div class="absolute top-0 left-1/2 w-8 h-16 bg-gradient-to-b from-cyan-300 to-blue-300 rounded-full transform -translate-x-1/2 rotate-180 opacity-70"></div>
+                                <div class="absolute top-0 left-1/2 w-8 h-16 bg-gradient-to-b from-cyan-300 to-blue-300 rounded-full transform -translate-x-1/2 rotate-225 opacity-70"></div>
+                                <div class="absolute top-0 left-1/2 w-8 h-16 bg-gradient-to-b from-cyan-300 to-blue-300 rounded-full transform -translate-x-1/2 rotate-270 opacity-70"></div>
+                                <div class="absolute top-0 left-1/2 w-8 h-16 bg-gradient-to-b from-cyan-300 to-blue-300 rounded-full transform -translate-x-1/2 rotate-315 opacity-70"></div>
+                            </div>
+                            <!-- Center -->
+                            <div class="absolute top-1/2 left-1/2 w-6 h-6 bg-white rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+                        </div>
+                    </div>
+
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-semibold text-white mb-4">Frontend</h3>
+                        <ul class="text-blue-100 space-y-2 font-light">
+                            <li>React & Next.js development</li>
+                            <li>Vue.js applications</li>
+                            <li>Modern CSS & animations</li>
+                            <li>Responsive design</li>
+                            <li>Performance optimization</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Backend Development Card -->
+                <div class="group relative bg-gradient-to-br from-purple-600 to-purple-800 rounded-3xl p-8 overflow-hidden transition-transform duration-500 hover:scale-105 cursor-pointer">
+                    <!-- 3D Shape - Fluid blob -->
+                    <div class="absolute bottom-6 right-6 w-32 h-32 opacity-80">
+                        <div class="relative w-full h-full">
+                            <div class="absolute inset-0 bg-gradient-to-br from-pink-300 to-purple-300 rounded-full transform-gpu animate-pulse"
+                                 style="border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; animation-duration: 3s;"></div>
+                            <div class="absolute inset-2 bg-gradient-to-tl from-purple-200 to-pink-200 rounded-full transform-gpu"
+                                 style="border-radius: 40% 60% 70% 30% / 40% 70% 30% 60%; animation: morph 4s ease-in-out infinite;"></div>
+                        </div>
+                    </div>
+
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-semibold text-white mb-4">Backend</h3>
+                        <ul class="text-purple-100 space-y-2 font-light">
+                            <li>Node.js & Express.js</li>
+                            <li>Database design & optimization</li>
+                            <li>RESTful & GraphQL APIs</li>
+                            <li>Authentication systems</li>
+                            <li>Cloud deployments</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Full Stack Development Card -->
+                <div class="group relative bg-gradient-to-br from-teal-600 to-teal-800 rounded-3xl p-8 overflow-hidden transition-transform duration-500 hover:scale-105 cursor-pointer">
+                    <!-- 3D Shape - Spiky sphere -->
+                    <div class="absolute bottom-6 right-6 w-32 h-32 opacity-80">
+                        <div class="relative w-full h-full flex items-center justify-center">
+                            <!-- Spikes -->
+                            <div class="absolute inset-0">
+                                <div class="absolute top-0 left-1/2 w-1 h-8 bg-gradient-to-t from-teal-300 to-cyan-200 transform -translate-x-1/2"></div>
+                                <div class="absolute top-2 right-2 w-1 h-6 bg-gradient-to-t from-teal-300 to-cyan-200 transform rotate-45"></div>
+                                <div class="absolute right-0 top-1/2 w-8 h-1 bg-gradient-to-r from-teal-300 to-cyan-200 transform -translate-y-1/2"></div>
+                                <div class="absolute bottom-2 right-2 w-1 h-6 bg-gradient-to-t from-teal-300 to-cyan-200 transform -rotate-45"></div>
+                                <div class="absolute bottom-0 left-1/2 w-1 h-8 bg-gradient-to-t from-teal-300 to-cyan-200 transform -translate-x-1/2"></div>
+                                <div class="absolute bottom-2 left-2 w-1 h-6 bg-gradient-to-t from-teal-300 to-cyan-200 transform rotate-45"></div>
+                                <div class="absolute left-0 top-1/2 w-8 h-1 bg-gradient-to-r from-teal-300 to-cyan-200 transform -translate-y-1/2"></div>
+                                <div class="absolute top-2 left-2 w-1 h-6 bg-gradient-to-t from-teal-300 to-cyan-200 transform -rotate-45"></div>
+                                
+                                <!-- More spikes for density -->
+                                <div class="absolute top-4 right-4 w-1 h-4 bg-gradient-to-t from-teal-400 to-cyan-300 transform rotate-30"></div>
+                                <div class="absolute bottom-4 right-4 w-1 h-4 bg-gradient-to-t from-teal-400 to-cyan-300 transform -rotate-30"></div>
+                                <div class="absolute bottom-4 left-4 w-1 h-4 bg-gradient-to-t from-teal-400 to-cyan-300 transform rotate-30"></div>
+                                <div class="absolute top-4 left-4 w-1 h-4 bg-gradient-to-t from-teal-400 to-cyan-300 transform -rotate-30"></div>
+                            </div>
+                            <!-- Center core -->
+                            <div class="w-12 h-12 bg-gradient-to-br from-cyan-200 to-teal-300 rounded-full"></div>
+                        </div>
+                    </div>
+
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-semibold text-white mb-4">Full Stack</h3>
+                        <ul class="text-teal-100 space-y-2 font-light">
+                            <li>End-to-end development</li>
+                            <li>System architecture</li>
+                            <li>DevOps & deployment</li>
+                            <li>Code review & mentoring</li>
+                            <li>Project management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center mt-16">
+                <button class="cta-button px-8 py-4 rounded-full text-sm font-medium tracking-wide">
+                    View my projects
+                </button>
+            </div>
+        </div>
+    </section>
+<!-- Contact Section -->
+<section id="contact" class="min-h-screen flex items-center justify-center px-6 py-16 bg-black">
+  <div class="max-w-6xl w-full bg-gradient-to-r from-gray-900 to-black rounded-3xl p-10 md:p-16 flex flex-col md:flex-row items-center">
+    
+    <!-- Left Image -->
+    <div class="flex-1 flex justify-center mb-10 md:mb-0">
+      <img src="/assets/mohit.png" alt="Contact" class="w-80 md:w-96 rounded-2xl object-cover shadow-lg">
+    </div>
+
+    <!-- Right Contact Form -->
+    <div class="flex-1 md:pl-12 w-full">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 text-white">Let’s Build Something</h2>
+      <p class="text-gray-400 text-lg mb-8">Reach out for collaborations or freelance projects</p>
+
+      <form class="space-y-6">
+        <!-- Name -->
+        <div class="relative">
+          <input type="text" placeholder="Your Name" class="w-full px-6 py-3 bg-gray-900 border border-gray-700 rounded-xl focus:border-pink-500 outline-none text-white">
+          <!-- User Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 absolute top-3 right-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A9 9 0 1118.364 6.636M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </div>
+
+        <!-- Email -->
+        <div class="relative">
+          <input type="email" placeholder="Your Email" class="w-full px-6 py-3 bg-gray-900 border border-gray-700 rounded-xl focus:border-pink-500 outline-none text-white">
+          <!-- Mail Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 absolute top-3 right-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm6 4V8a2 2 0 00-2-2H6a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2z" />
+          </svg>
+        </div>
+
+        <!-- Message -->
+        <div class="relative">
+          <textarea placeholder="Your Message" rows="4" class="w-full px-6 py-3 bg-gray-900 border border-gray-700 rounded-xl focus:border-pink-500 outline-none text-white"></textarea>
+          <!-- Chat Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 absolute top-3 right-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h8m-8 4h5m9 4l-2-2a9.953 9.953 0 002-6A10 10 0 1012 22a9.953 9.953 0 006-2l2 2z" />
+          </svg>
+        </div>
+
+        <!-- Send Button -->
+        <button type="submit" class="group w-full flex items-center justify-center space-x-2 border border-gray-600 hover:border-pink-500 text-white px-8 py-4 rounded-full transition-all duration-300 hover:bg-pink-500/10">
+          <span>Send Message</span>
+          <!-- Arrow Right Icon -->
+          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  document.getElementById("whatsappForm").addEventListener("submit", function(event){
+    event.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+
+    let phone = "918299065984"; 
+    let text = `Hello! 👋%0AMy Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
+
+    let url = `https://wa.me/${phone}?text=${text}`;
+    window.open(url, "_blank").focus();
+  });
+</script>
+
+
+    <style>
+        @keyframes morph {
+            0%, 100% {
+                border-radius: 40% 60% 70% 30% / 40% 70% 30% 60%;
+                transform: rotate(0deg);
+            }
+            50% {
+                border-radius: 70% 30% 40% 60% / 70% 40% 60% 30%;
+                transform: rotate(180deg);
+            }
+        }
+    </style>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mouse movement parallax effect
+        document.addEventListener('mousemove', (e) => {
+            const sphere = document.querySelector('.sphere');
+            const x = (e.clientX / window.innerWidth) * 10 - 5;
+            const y = (e.clientY / window.innerHeight) * 10 - 5;
+            
+            sphere.style.transform = `translateY(-20px) rotateX(${y}deg) rotateY(${x}deg)`;
+        });
+
+        // Scroll-based animations
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            const sphere = document.querySelector('.sphere');
+            
+            if (sphere) {
+                sphere.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Menu button click animation
+        document.querySelector('.menu-button').addEventListener('click', function() {
+            // Add menu functionality here
+            console.log('Menu clicked');
+        });
+
+        // CTA button click
+        document.querySelector('.cta-button').addEventListener('click', function() {
+            document.querySelector('#about').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
