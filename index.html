@@ -99,26 +99,139 @@
 <body class="bg-dark-bg text-white font-sans overflow-x-hidden">
     
     <!-- Navigation Header -->
-    <nav class="fixed top-0 w-full z-50 px-8 py-6">
-        <div class="flex justify-between items-center">
-            <!-- Logo -->
-            <div class="text-xl font-bold tracking-wider">
-                MOHIT
-            </div>
-            
-            <!-- Menu Button -->
-            <button class="menu-button px-6 py-2 rounded-full text-sm font-medium tracking-wide">
-                <div class="flex items-center space-x-2">
-                    <span>MENU</span>
-                    <div class="flex flex-col space-y-1">
-                        <div class="w-4 h-0.5 bg-white"></div>
-                        <div class="w-4 h-0.5 bg-white"></div>
-                        <div class="w-4 h-0.5 bg-white"></div>
-                    </div>
-                </div>
-            </button>
-        </div>
-    </nav>
+   <script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+/* Glitch Animation */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px) hue-rotate(15deg); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-1px, 1px); opacity: 0.96; }
+  80% { transform: translate(1px, -1px); opacity: 1; }
+  100% { transform: translate(0); }
+}
+.glitch-img { animation: glitch 2.5s infinite; }
+</style>
+
+<!-- FIXED TOP LEFT LOGO (ALWAYS VISIBLE) -->
+<div class="fixed top-5 left-6 z-[11000] text-white text-3xl font-semibold tracking-widest">
+  MAHI CREATION
+</div>
+
+
+<!-- MENU / CLOSE BUTTON -->
+<button 
+  id="menuToggleBtn"
+  onclick="toggleMenu()"
+  class="fixed top-5 right-6 z-[11000] border border-white text-white px-6 py-2 rounded-full bg-transparent 
+         hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center
+         text-lg font-medium select-none">
+
+    <span id="menuText" class="block transition-all duration-500">MENU</span>
+</button>
+
+<!-- FULL OVERLAY -->
+<div 
+  id="menuOverlay"
+  class="fixed inset-0 bg-black bg-opacity-100 flex opacity-0 invisible transition-all duration-700 z-[10000]">
+
+  <!-- LEFT PANEL -->
+  <div class="w-1/2 h-full hidden md:flex flex-col justify-center items-center transform -translate-x-32 opacity-0 transition-all duration-700" id="leftPanel">
+      <img src="https://ik.imagekit.io/9nysupz63/New%20Folder/manu_img.jpg" 
+           class="w-3/4 max-h-[80%] object-contain glitch-img" />
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="w-full md:w-1/2 h-full flex flex-col justify-center px-12 md:px-24 transform translate-x-32 opacity-0 transition-all duration-700" id="rightPanel">
+
+      
+
+      <!-- MENU LINKS -->
+      <nav class="flex flex-col space-y-6 mt-10 text-white">                                               
+          <a href="#" class="menu-link text-4xl font-light opacity-0 translate-y-6 transition-all duration-500">Home</a>
+          <a href="#" class="menu-link text-4xl font-light opacity-0 translate-y-6 transition-all duration-500">Price</a> 
+          <a href="#" class="menu-link text-4xl font-light opacity-0 translate-y-6 transition-all duration-500">About  </a>
+          <a href="#" class="menu-link text-4xl font-light opacity-0 translate-y-6 transition-all duration-500">Schedule an Appointment</a>
+      </nav>
+  </div>
+</div>
+
+<script>
+let menuOpen = false;
+
+function toggleMenu() {
+  if (!menuOpen) {
+      openMenu();
+      animateToClose();
+  } else {
+      closeMenu();
+      animateToMenu();
+  }
+}
+
+function animateToClose() {
+  const text = document.getElementById("menuText");
+  text.style.transform = "rotate(180deg)";
+  text.style.opacity = "0";
+
+  setTimeout(() => {
+      text.textContent = "✕";
+      text.style.transform = "rotate(0deg)";
+      text.style.opacity = "1";
+  }, 300);
+}
+
+function animateToMenu() {
+  const text = document.getElementById("menuText");
+  text.style.transform = "rotate(-180deg)";
+  text.style.opacity = "0";
+
+  setTimeout(() => {
+      text.textContent = "MENU";
+      text.style.transform = "rotate(0deg)";
+      text.style.opacity = "1";
+  }, 300);
+}
+
+function openMenu() {
+  menuOpen = true;
+  document.getElementById("menuOverlay").classList.remove("opacity-0", "invisible");
+  document.getElementById("menuOverlay").classList.add("opacity-100", "visible");
+
+  const left = document.getElementById("leftPanel");
+  const right = document.getElementById("rightPanel");
+  const links = document.querySelectorAll(".menu-link");
+
+  setTimeout(() => {
+    left.classList.remove("-translate-x-32", "opacity-0");
+    right.classList.remove("translate-x-32", "opacity-0");
+
+    links.forEach((link, i) => {
+      setTimeout(() => {
+        link.classList.remove("opacity-0", "translate-y-6");
+      }, 180 * i);
+    });
+  }, 100);
+}
+
+function closeMenu() {
+  menuOpen = false;
+  const overlay = document.getElementById("menuOverlay");
+  const left = document.getElementById("leftPanel");
+  const right = document.getElementById("rightPanel");
+  const links = document.querySelectorAll(".menu-link");
+
+  left.classList.add("-translate-x-32", "opacity-0");
+  right.classList.add("translate-x-32", "opacity-0");
+  links.forEach(link => link.classList.add("opacity-0", "translate-y-6"));
+
+  setTimeout(() => {
+    overlay.classList.add("opacity-0", "invisible");
+  }, 400);
+}
+</script>
+
 
     <!-- Hero Section -->
     <section class="min-h-screen flex items-center justify-center relative">
